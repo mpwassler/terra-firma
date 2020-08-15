@@ -1,0 +1,48 @@
+{
+  "name": "terrafirma",
+  "version": "1.0.0",
+  "description": "A package for genrating 3D maps from GeoJSON shapes",
+  "main": "src/index.js",
+  "author": "Mitchel Wassler",
+  "license": "MIT",
+  "dependencies": {
+    "@mapbox/tile-cover": "^3.0.2",
+    "three": "^0.113.2",
+    "@turf/turf": "^5.1.6",
+    "get-pixels": "^3.3.2",
+    "gsap": "^3.2.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^25.5.3",
+    "standard": "^14.3.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "lint": "standard 'app/javascript/**/*.js'",
+    "lint-fix": "standard 'app/javascript/**/*.js' --fix",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": "3",
+        "targets": {
+          "browsers": [
+            "last 5 versions",
+            "ie >= 8"
+          ]
+        }
+      }
+    ]
+  ]
+}
