@@ -1,5 +1,5 @@
 {
-  "name": "terrafirma",
+  "name": "@mpwassler/terrafirma",
   "version": "1.0.0",
   "description": "A package for genrating 3D maps from GeoJSON shapes",
   "main": "src/index.js",
@@ -12,6 +12,10 @@
     "@turf/turf": "^5.1.6",
     "get-pixels": "^3.3.2",
     "gsap": "^3.2.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mpwassler/terra-firma.git"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
