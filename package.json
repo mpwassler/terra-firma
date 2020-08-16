@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "author": "Mitchel Wassler",
   "license": "MIT",
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@mapbox/tile-cover": "^3.0.2",
     "three": "^0.113.2",
