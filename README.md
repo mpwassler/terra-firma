@@ -8,6 +8,8 @@ Currently it only supports mapbox tiles but I would like to possibly add more. D
 
 Built with THREE.js and turf.js
 
+Note: still trying to figure out how NPM works once I figure that out it will be available there.
+
 ## Basic usage
 
 ```js
