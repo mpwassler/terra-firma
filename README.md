@@ -86,7 +86,7 @@ map3d.drawMarker({
 ```
 
 And to draw a linestring
-```
+```js
 map3d.drawLine({
     "type": "LineString",
     "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
