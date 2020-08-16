@@ -62,13 +62,31 @@ This will output a rendering like.
 <img alt="Sample Render" src="sample/sample_render.png" width="1000" />
 
 To point the camera to a new center
-```
-map3d.focusOn(geojsonPoint)
+```js
+map3d.focusOn({
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+})
 ```
 
 To add a marker
-```
-map3d.drawMarker(geojsonPoint)
+```js
+map3d.drawMarker({
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+})
 ```
 
 And to draw a linestring
