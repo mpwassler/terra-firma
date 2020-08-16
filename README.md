@@ -69,9 +69,7 @@ map3d.focusOn({
     "type": "Point",
     "coordinates": [125.6, 10.1]
   },
-  "properties": {
-    "name": "Dinagat Islands"
-  }
+  "properties": {}
 })
 ```
 
@@ -83,9 +81,7 @@ map3d.drawMarker({
     "type": "Point",
     "coordinates": [125.6, 10.1]
   },
-  "properties": {
-    "name": "Dinagat Islands"
-  }
+  "properties": {}
 })
 ```
 
