@@ -12,8 +12,12 @@ Note: still trying to figure out how NPM works once I figure that out it will be
 
 ## Basic usage
 
+`npm install @mpwassler/terrafirma`
+
+
+
 ```js
-import TerraFirma from 'terra-firma'
+import TerraFirma from '@mpwassler/terrafirma'
 
 // Define a geoJSON Feature. Can be anything but keep in
 // mind the result will always be reqtangular. This is just
