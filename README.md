@@ -87,7 +87,10 @@ map3d.drawMarker({
 
 And to draw a linestring
 ```
-map3d.drawLine(linstring)
+map3d.drawLine({
+    "type": "LineString",
+    "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
+})
 ```
 
 Inputs are all geojson types.
