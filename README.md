@@ -8,6 +8,7 @@ Currently it only supports mapbox tiles but I would like to possibly add more. D
 
 Built with THREE.js and turf.js
 
+Makes heavy use of [mapbox's terrain RGB api](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/). Also uses their satalite imagry. Shout out to mapbox for having so many cool apis to play around with.
 
 ## Basic usage
 
