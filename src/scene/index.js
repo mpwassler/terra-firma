@@ -4,7 +4,9 @@ import {
   PerspectiveCamera,
   WebGLRenderer,
   Vector3,
-  Mesh
+  Mesh,
+  PlaneBufferGeometry,
+  BufferAttribute
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import config from '../../config'
@@ -12,6 +14,7 @@ import geometry from './geometry'
 import { GeoLine } from './geoline'
 import { makeSky } from './sky'
 import gsap from 'gsap'
+import geometryCache from './geometryCache'
 
 // Initilaize and set up the 3d scene
 const width = window ? window.innerWidth : 1000
@@ -57,13 +60,32 @@ const setCameraTarget = (center) => {
   )
 }
 
+const setMeshFromCache = async (meshConfig, loadedCb) => {
+  let {
+     vertices, meters, gridSize, widthRes, heightRes, averageElevation
+  } = await geometryCache.get(meshConfig.cacheKey)
+  const geometry = new PlaneBufferGeometry(
+    meters * gridSize[0],
+    meters * gridSize[1],
+    widthRes - 1,
+    heightRes - 1
+  )
+  geometry.setAttribute('position', new BufferAttribute(vertices, 3))
+
+  const mesh = new Mesh(geometry, meshConfig.material)
+  mesh.position.set(meshConfig.center.x, meshConfig.center.y, 0)
+  scene.add(mesh)
+  loadedCb(averageElevation)
+}
+
 const setMesh = async (meshConfig, loadedCb) => {
   geometry.build({
     pixels: meshConfig.pixelData,
     meters: meshConfig.metersPerTile,
     gridSize: [meshConfig.gridColumns, meshConfig.gridRows],
     widthRes: meshConfig.xResolution,
-    heightRes: meshConfig.yResolutuin
+    heightRes: meshConfig.yResolutuin,
+    cacheKey: meshConfig.cacheKey
   }, async (geometry, averageElevation) => {
     const mesh = new Mesh(geometry, meshConfig.material)
     mesh.position.set(meshConfig.center.x, meshConfig.center.y, 0)
@@ -110,6 +132,7 @@ export default {
   start,
   setCameraTarget,
   setMesh,
+  setMeshFromCache,
   drawLine,
   initilaize,
   add,

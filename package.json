@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@mapbox/tile-cover": "^3.0.2",
-    "three": "^0.113.2",
     "@turf/turf": "^5.1.6",
     "get-pixels": "^3.3.2",
-    "gsap": "^3.2.6"
+    "gsap": "^3.2.6",
+    "idb": "^5.0.4",
+    "three": "^0.113.2"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "babel-loader": "^8.1.0",
+    "dotenv": "^8.2.0",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^25.5.3",
     "standard": "^14.3.1",

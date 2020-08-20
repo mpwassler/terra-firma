@@ -17,6 +17,8 @@ let polygon = {
     }
 }
 
+console.log(process.env)
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
@@ -25,10 +27,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   let map3d = new TerraFirma({
     element: mapElemenat,
     feature: polygon,
-    buffer: 10,
+    buffer: 500,
     bufferUnit: 'meters',
     resolutionMultiple: 1,
-    apiToken: ""
+    apiToken: process.env.MAPBOX_API_TOKEN
   })
 
 })

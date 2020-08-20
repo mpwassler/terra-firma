@@ -18,7 +18,8 @@ export class Linestring extends Geography {
     return {
       tiles: tileset,
       polygons: this.project(tilePloygons),
-      center: this.toVector(this.project(center))
+      center: this.toVector(this.project(center)),
+      boundingBox
     }
   }
 }

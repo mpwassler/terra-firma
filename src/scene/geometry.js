@@ -3,7 +3,7 @@ import {
   BufferAttribute
 } from 'three'
 
-window.PlaneBufferGeometry = PlaneBufferGeometry
+import geometryCache from './geometryCache'
 
 const workerFunc = () => {
   importScripts("https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js")
@@ -67,7 +67,8 @@ const elevationWorker = new window.Worker(blobURL)
 
 const build = (data, onComplete) => {
   elevationWorker.postMessage(data)
-  elevationWorker.onmessage = (event) => {
+  elevationWorker.onmessage = async (event) => {
+    await geometryCache.save(data.cacheKey, event.data)
     const { vertices, meters, gridSize, widthRes, heightRes, averageElevation } = event.data
     const geometry = new PlaneBufferGeometry(
       meters * gridSize[0],
